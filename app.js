@@ -49,6 +49,7 @@ const selectItem = (event, img) => {
     element.classList.remove('added');
     sliders = sliders.filter(image => image != img);
   }
+  document.getElementById('selection-status-count').innerText = `${sliders.length} Images are selected`;
 }
 var timer;
 const createSlider = () => {
@@ -119,6 +120,7 @@ searchBtn.addEventListener('click', function () {
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
   const search = document.getElementById('search');
+  document.getElementById('selection-status-count').innerText = '';
   getImages(search.value)
   sliders.length = 0;
 })
