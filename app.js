@@ -49,7 +49,16 @@ const selectItem = (event, img) => {
     element.classList.remove('added');
     sliders = sliders.filter(image => image != img);
   }
-  document.getElementById('selection-status-count').innerText = `${sliders.length} Images are selected`;
+  if(sliders.length === 0){
+    document.getElementById('selection-status-count').innerText = '';
+  }
+  else if(sliders.length === 1){
+    document.getElementById('selection-status-count').innerText = `${sliders.length} Image are selected`; // for image spelling singular
+  }
+  else{
+    document.getElementById('selection-status-count').innerText = `${sliders.length} Images are selected`; // for image spelling plural
+  }
+
 }
 var timer;
 const createSlider = () => {
